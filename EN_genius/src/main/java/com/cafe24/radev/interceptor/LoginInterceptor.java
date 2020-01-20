@@ -26,7 +26,7 @@ public class LoginInterceptor implements HandlerInterceptor {
 
 			  System.out.println("세션이 만료되었거나 존재하지 않습니다."); 
 			  try {
-				  response.sendRedirect("/login/loginForm"); 
+				  response.sendRedirect("/portfolio"); 
 			  } catch (IOException e) {
 				  e.printStackTrace(); 
 			  } 

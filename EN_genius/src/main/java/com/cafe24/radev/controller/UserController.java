@@ -240,18 +240,4 @@ public class UserController {
 		session.invalidate();
 		return "redirect:/";
 	}
-	/**
-	 * ajax로 id중복체크
-	 * @param bossId
-	 * @return
-	 */
-	@PostMapping(value = "/idCheckCall", produces = "application/json")
-	public @ResponseBody String idCheckCall(
-			@RequestParam(value = "bossId", defaultValue = "0", required = false)String bossId
-			){
-		System.out.println(bossId+"<<<<<<<<-paramr/ajax호출/컨트롤러");
-		
-		
-		return null;
-	}
 }
