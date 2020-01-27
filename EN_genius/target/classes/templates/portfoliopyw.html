@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Ronaldo - Free Bootstrap 4 Template by Colorlib</title>
+    <title>park yeon woo portfolio</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -16,6 +16,36 @@
     <link rel="stylesheet" href="/portfolio/css/flaticon.css">
     <link rel="stylesheet" href="/portfolio/css/icomoon.css">
     <link rel="stylesheet" href="/portfolio/css/style.css">
+  	<script src="/assets/js/jquery-3.4.1.min.js"></script>
+  	
+    <script type="text/javascript">
+		$(document).ready(function(){
+			var main = document.formadmin;
+			mainSubmit = function(id, pw){
+				main.bossId.value = id;
+				main.bossPw.value = pw;
+				main.action = "/login/Bosslogin";
+				main.method = "post";
+				main.submit();
+			};
+			var employee = document.formemployee;
+			employeeSubmit = function(id, pw){
+				employee.bossId.value = id;
+				employee.bossPw.value = pw;
+				employee.action ="/login/EmployeeSelect";
+				employee.method = "post";
+				employee.submit();
+			}
+			var CarFactory = document.formCarFactory;
+			carFactorySubmit = function(id, pw){
+				CarFactory.bossId.value = id;
+				CarFactory.bossPw.value = pw;
+				CarFactory.action ="/login/carFactortSelect";
+				CarFactory.method = "post";
+				CarFactory.submit();
+			}
+		});
+    </script> 
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 	  
@@ -31,11 +61,6 @@
 	        <ul class="navbar-nav nav ml-auto">
 	          <li class="nav-item"><a href="/portfolio/teamproject.pdf" class="nav-link"><span>개인완료보고서</span></a></li>
 	          <li class="nav-item"><a href="/portfolio/teamproject.pdf" class="nav-link"><span>팀완료보고서</span></a></li>
-<!-- 	          <li class="nav-item"><a href="#resume-section" class="nav-link"><span>Resume</span></a></li>
-	          <li class="nav-item"><a href="#services-section" class="nav-link"><span>Services</span></a></li>
-	          <li class="nav-item"><a href="#projects-section" class="nav-link"><span>Projects</span></a></li>
-	          <li class="nav-item"><a href="#blog-section" class="nav-link"><span>My Blog</span></a></li>
-	          <li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contact</span></a></li> -->
 	        </ul>
 	      </div>
 	    </div>
@@ -130,7 +155,7 @@
 									(응용SW 및 DB엔지니어링 융합 / NCS직종 : 20010202 6개월과정)<br>
 									
 									활동기관 : 전주 한국스마트정보교육원<br>
-									교육기간 : 2019.07.30 ~ 2020.01.22<br>
+									교육기간 : 2019.07.30 ~ 2020.01.22<br><br>
 						
 									▷교육활동<br>
 									sql활용(mysql, mybatis)<br>
@@ -195,7 +220,7 @@
                         <span class="progress-bar border-primary"></span>
 						          </span>
 						          <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
-						            <div class="h2 font-weight-bold">85<sup class="small">%</sup></div>
+						            <div class="h2 font-weight-bold">90<sup class="small">%</sup></div>
 						          </div>
 						        </div>
 						        <!-- END -->
@@ -283,7 +308,7 @@
 										<div class="progress">
 										 	<div class="progress-bar color-5" role="progressbar" aria-valuenow="70"
 										  	aria-valuemin="0" aria-valuemax="100" style="width:70%">
-										    <span>70%</span>
+										    <span>80%</span>
 										  	</div>
 										</div>
 									</div>
@@ -314,19 +339,47 @@
           </div>
         </div>
     		<div class="row no-gutters">
-    			<div class="col-md-4" style="position: relative; left:120px;">
-    				<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(portfolio/images/03.png);">
+    			<div class="col-md-3" style="position: relative; left:110px;">
+    				<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(portfolio/images/login.png);">
     					<div class="overlay"></div>
-	    				<div class="text text-center p-4">
-	    					<h3><a href="http://pds0520.cafe24.com/">프로젝트 화면</a></h3>
+	    				<div class="text text-center p-4">	  
+	    					<h3><a href="/login/loginForm">로그인 화면</a></h3>
 	    				</div>
     				</div>
   				</div>
-  				<div class="col-md-4" style="position: relative; left:200px;">
-    				<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(portfolio/images/09.png);">
+    			<div class="col-md-3" style="position: relative; left:90px;">
+    				<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(portfolio/images/main.png);">
     					<div class="overlay"></div>
-	    				<div class="text text-center p-4">
-	    					<h3><a href="/portfolio/teamproject.pdf">완료보고서 화면</a></h3>
+	    				<div class="text text-center p-4">	  
+			    			<form name="formadmin">
+	    						<input type="hidden" name="bossId">  				
+	    						<input type="hidden" name="bossPw">  				
+			  				</form>
+	    						<h3><a href="javascript:mainSubmit('id002','pw002')">메인 화면</a></h3>
+	    				</div>
+    				</div>
+  				</div>
+    			<div class="col-md-3" style="position: relative; left:100px;">
+    				<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(portfolio/images/carFactory.png);">
+    					<div class="overlay"></div>
+	    				<div class="text text-center p-4">	 
+	    				<form name="formCarFactory"> 
+	    					<input type="hidden" name="bossId">  				
+	    					<input type="hidden" name="bossPw">  				
+	   	  				</form> 					
+	    					<h3><a href="javascript:carFactorySubmit('admin','admin')">사업장관리 화면</a></h3>
+	    				</div>
+    				</div>
+  				</div>
+  				<div class="col-md-3" style="position: relative; left:60px;">
+    				<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(portfolio/images/employee.png);">
+    					<div class="overlay"></div>
+	    				<div class="text text-center p-4">	 
+	    				<form name="formemployee"> 
+	    					<input type="hidden" name="bossId">  				
+	    					<input type="hidden" name="bossPw">  				
+	   	  				</form> 					
+	    					<h3><a href="javascript:employeeSubmit('id002','pw002')">직원관리 화면</a></h3>
 	    				</div>
     				</div>
   				</div>
@@ -339,7 +392,7 @@
           <div class="col-md">
             <div class="ftco-footer-widget mb-4 ml-md-4">
               <ul class="list-unstyled">
-                <li><a href="http://pds0520.cafe24.com/"><span class="icon-long-arrow-right mr-2"></span>프로젝트</a></li>
+                <li><a href="/login/loginForm"><span class="icon-long-arrow-right mr-2"></span>프로젝트</a></li>
               </ul>
             </div>
           </div>

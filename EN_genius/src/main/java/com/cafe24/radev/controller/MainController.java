@@ -21,15 +21,10 @@ public class MainController {
 	@Autowired private CarReferService carReferService;
 	@Autowired private RecService recService;
 	
-	@GetMapping("/portfolio")
-	public String pf() {
+	@GetMapping("/")
+	public String main() {
 		return "/portfoliopyw";
 	}
-	
-//	@GetMapping("/main/")
-//	public String main() {
-//		return "/login/main";
-//	}
 	@GetMapping("/main/recSearchMain")
 	public String recSearchMain() {
 		return "/login/recSearchMain";

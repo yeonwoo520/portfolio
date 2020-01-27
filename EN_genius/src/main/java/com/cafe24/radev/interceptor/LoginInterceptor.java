@@ -12,29 +12,17 @@ import org.springframework.boot.web.servlet.server.Session;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 
-
 @Component
 public class LoginInterceptor implements HandlerInterceptor {
-      
-    @Override
-    public boolean preHandle(HttpServletRequest request,
-                             HttpServletResponse response,
-                             Object handler) {    	
-    	HttpSession session = request.getSession(false);
-    	
-		  if(session == null) { 
 
-			  System.out.println("세션이 만료되었거나 존재하지 않습니다."); 
-			  try {
-				  response.sendRedirect("/portfolio"); 
-			  } catch (IOException e) {
-				  e.printStackTrace(); 
-			  } 
-			  return false; 
-		
-		  }else { 
-			  System.out.println("==세션값있음=="); 
-			  return true; 
-		  }   	
-    }	
+	/*
+	 * @Override public boolean preHandle(HttpServletRequest request,
+	 * HttpServletResponse response, Object handler) { HttpSession session =
+	 * request.getSession(false); System.out.println(request.getRequestURI()); if
+	 * (session == null) { System.out.println("세션이 만료되었거나 존재하지 않습니다."); try {
+	 * response.sendRedirect("/login/loginForm"); } catch (IOException e) {
+	 * e.printStackTrace(); } return false;
+	 * 
+	 * } else { System.out.println("==세션값있음=="); return true; } }
+	 */
 }

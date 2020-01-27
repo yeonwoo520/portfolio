@@ -132,6 +132,7 @@ public class UserController {
 	 
 	 
 /********************************************************************************************************로그인*/	
+
 	  /**
 	   * 로그인폼 화면 이동
 	   * @return
@@ -171,6 +172,36 @@ public class UserController {
 		}		
 		return "redirect:/main/recSearchMain";
 	}
+	/**
+	 * 관리자 로그인처리
+	 * @param carFactory
+	 * @param session
+	 * @param model
+	 * @return
+	 */
+	@PostMapping("/login/carFactortSelect")
+	public String adminLogin2(CarFactory carFactory, HttpSession session, Model model) {
+		System.out.println(carFactory.toString());		
+		Map<String,Object> map = userService.adminLogin(carFactory);
+		String re = (String)map.get("re");
+		CarFactory c = (CarFactory)map.get("login");	
+		
+		if("login".equals(re)) {
+			if("관리자".equals(c.getBsWriter())) {
+				session.setAttribute("SLEVEL", c.getBsLevel());
+				session.setAttribute("SID", c.getBossId());
+				session.setAttribute("SCODE", c.getBsCode());
+			}else if("bs001".equals(c.getBsWriter())){
+				model.addAttribute("lo", "관리자 로그인 창입니다");
+				return "/login/login";
+			}
+		}else {
+			model.addAttribute("lo", re);
+			//session.setAttribute("lo", re);
+			return "/login/login";
+		}		
+		return "redirect:/carfactory/CarFactorySelect";
+	}
 
 	/**
 	 * 사장님 로그인처리
@@ -202,6 +233,38 @@ public class UserController {
 			return "/login/login";
 		}		
 		return "redirect:/main/recSearchMain";
+	} 
+	/**
+	 * 로그인 처리 후 직원관리 페이지로 이동/포토폴리오용
+	 * @param carFactory
+	 * @param session
+	 * @param model
+	 * @return
+	 */
+	@PostMapping("/login/EmployeeSelect")
+	public String bossLogin2(CarFactory carFactory, HttpSession session, Model model) { 
+		System.out.println(carFactory.toString());				
+		
+		Map<String,Object> map = userService.adminLogin(carFactory);
+		System.out.println(userService.adminLogin(carFactory).toString()+"<<1번확인");
+		String re = (String)map.get("re");
+		CarFactory c = (CarFactory)map.get("login");	
+		
+		if("login".equals(re)) {
+			if("bs001".equals(c.getBsWriter())) {
+				session.setAttribute("SID", c.getBossId());
+				session.setAttribute("SCODE", c.getBsCode());
+				session.setAttribute("SNAME", c.getBossName());
+				session.setAttribute("SWRITER", c.getBsWriter());
+			}else if("관리자".equals(c.getBsWriter())){
+				model.addAttribute("lo", "사장님 로그인 창입니다");
+				return "/login/login";
+			}
+		}else {
+			model.addAttribute("lo", re);
+			return "/login/login";
+		}		
+		return "redirect:/employee/employeeSelect";
 	} 
 
 	/**
@@ -238,6 +301,6 @@ public class UserController {
 	@GetMapping("/login/logout")
 	public String logout(HttpSession session) {
 		session.invalidate();
-		return "redirect:/";
+		return "redirect:/login/loginForm";
 	}
 }
